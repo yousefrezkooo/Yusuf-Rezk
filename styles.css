@@ -1,0 +1,223 @@
+body {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "aside main";
+    gap: 40px;
+    background-color: #0D0D0D;
+    color: #f3f3f4;
+    cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5eead4;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out, background-color 0.2s ease;
+}
+a, button {
+    cursor: none; /* Completely removes the hand cursor */
+}
+
+.cursor.hover {
+  transform: scale(1.5);
+  background-color: rgba(94, 234, 212, 0.2);
+  cursor: none; 
+}
+
+#intro {
+    font-weight: 400;
+    font-size: 2rem;
+    border-right: 2px solid #5eead4;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.about-text {
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.6;
+    max-width: 600px;
+    padding: 1rem;
+    word-wrap: break-word;
+}
+
+ul {
+    list-style-type: "➜ ";
+    padding-left: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #f3f3f4;
+}
+
+a:hover {
+    color: #5eead4;
+}
+
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    background-color: #343030;
+    height: 100vh;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+main {
+    grid-area: main;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 4px 4px 0 #5eead4;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0 #5eead4;
+}
+
+.project-image {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(94, 234, 212, 0.2);
+}
+
+.project-info {
+    flex: 1;
+    font-family: 'Inconsolata', monospace;
+    color: #f3f3f4;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #5eead4;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+
+li {
+    list-style: none;
+    margin: 5px;
+    list-style-type: "➜ ";
+}
+
+#nav li.active::before {
+    content: "➜ ➜ ";
+    color: #5eead4;
+    margin-right: 4px;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px #5eead4, -2px -2px #9880f8;
+        transform: translate(0);
+    }
+
+    20% {
+        text-shadow: -2px 2px #5eead4, 2px -2px #9880f8;
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        text-shadow: 2px -2px #5eead4, -2px 2px #9880f8;
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        text-shadow: -2px -2px #5eead4, 2px 2px #9880f8;
+        transform: translate(-1px, 1px);
+    }
+
+    80% {
+        text-shadow: 2px 2px #5eead4, -2px -2px #9880f8;
+        transform: translate(1px, -1px);
+    }
+
+    100% {
+        text-shadow: none;
+        transform: translate(0);
+    }
+}
+
+.terminal-image {
+    animation: glitch 1s infinite;
+    inline-size: 400px;
+    align-self: center;
+}
+
+.glitch-text {
+    animation: glitch 1s infinite;
+    display: inline-block;
+}
+
+@media (max-width: 969px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "aside"
+            "main";
+        gap: 10px;
+    }
+
+    aside {
+        position:relative;
+        height: auto;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-image {
+        width: 100%;
+    }
+}
+
