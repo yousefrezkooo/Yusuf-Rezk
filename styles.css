@@ -8,6 +8,18 @@ body {
     background-color: #0D0D0D;
     color: #f3f3f4;
     cursor: none;
+    margin: 0;
+}
+
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    background-color: #343030;
+    height: 100vh;
+    border-radius: 0px;
 }
 
 .cursor {
@@ -70,17 +82,7 @@ a:hover {
     color: #5eead4;
 }
 
-aside {
-    grid-area: aside;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    background-color: #343030;
-    height: 100vh;
-    border-radius: 15px;
-    margin-right: 10px;
-}
+
 
 main {
     grid-area: main;
